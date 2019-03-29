@@ -36,6 +36,7 @@
 
 <script>
 export default {
+    middleware: 'guest',
     data() {
         return {
             form: {
@@ -50,6 +51,9 @@ export default {
             this.$axios.$post('/auth/login', this.form)
             .then(data => {
                 this.$auth.login({data: this.form});
+                    // this.$router.push({name : 'index'});
+                    this.$router.push(this.$route.query.redirect ? this.$route.query.redirect : '/');
+
                     console.log(data);
                 })
                 .catch(err => {

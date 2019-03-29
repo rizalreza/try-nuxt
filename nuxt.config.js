@@ -40,6 +40,7 @@ export default {
   */
   plugins: [
     './plugins/mixins/validation',
+    './plugins/mixins/user',
     './plugins/axios'
   ],
 
@@ -54,15 +55,18 @@ export default {
             url: 'profile', method: 'get', propertyName: 'data'
           },
           logout: {
-            url: 'profile/logout', method: 'get'
+            url: 'auth/logout', method: 'get'
           }
         }
-      },
+      }
+    },
       redirect: {
           login: '/auth/login',
           home: '/'
-      }
-    }
+      },
+      plugins: [
+        './plugins/auth'
+      ]
   },
 
   /*

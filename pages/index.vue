@@ -2,6 +2,8 @@
   <section class="container">
     <div>
       <center><h1>Home</h1></center>
+      <p>{{authenticated}}</p>
+      <p>{{user.email}}</p>
     </div>
   </section>
 </template>

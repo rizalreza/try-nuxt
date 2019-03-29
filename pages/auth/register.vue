@@ -43,6 +43,7 @@
 
 <script>
 export default {
+    middleware: 'guest',
     data() {
         return {
             form: {
@@ -57,9 +58,8 @@ export default {
         register() {
             this.$axios.$post('/auth/register', this.form)
             .then(data => {
-                this.$auth.login(
-                    {data: this.form}
-                );
+                this.$auth.login({data: this.form});
+                this.$router.push({name : 'index'});
                 console.log(data);
             })
             .catch(err => {
