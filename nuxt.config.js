@@ -23,6 +23,12 @@ export default {
   */
   loading: { color: '#fff' },
 
+  router: {
+    middleware: [
+      'clearValidationErrors'
+    ]
+  },
+
   /*
   ** Global CSS
   */
@@ -32,7 +38,10 @@ export default {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [],
+  plugins: [
+    './plugins/mixins/validation',
+    './plugins/axios'
+  ],
 
   auth: {
     strategies: {
